@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <!-- 新建自定义属性集合 -->
+    <declare-styleable name="SettingItemView">
+
+        <!-- 自定义属性 :文本 -->
+        <attr name="sivText" format="reference|string" />
+
+        <!-- 自定义属性 :背景 -->
+        <attr name="sivBackground">
+            <enum name="start" value="0" />
+            <enum name="middle" value="1" />
+            <enum name="end" value="2" />
+        </attr>
+        <!-- 自定义属性 :开关 -->
+        <attr name="sivToggleEnable" format="boolean" />
+    </declare-styleable>
+    
+    <declare-styleable name="ProgressStateView">
+
+        <!-- title -->
+        <attr name="psvTitle" format="reference|string" />
+    </declare-styleable>
+</resources>

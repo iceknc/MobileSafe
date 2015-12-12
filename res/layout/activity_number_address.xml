@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/TitleBarStyle"
+        android:text="号码归属地查询" />
+
+    <EditText
+        android:id="@+id/na_et_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/input_selector"
+        android:hint="请输入要查询的号码"
+        android:phoneNumber="true"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/na_btn_query"
+        style="@style/NormalBtnPrimaryStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:onClick="clickQuery"
+        android:text="查询" />
+
+    <TextView
+        android:id="@+id/na_et_address"
+        style="@style/NormalTextStyle"
+        android:layout_margin="8dp"
+        android:text="归属地:" />
+
+</LinearLayout>

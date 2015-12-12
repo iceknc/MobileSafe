@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="item_pressed">#88399AD6</color>
+    <color name="progress_bg">#22334455</color>
+    <color name="progress_sencodary">#33ff0000</color>
+    <color name="progress_progress">#99ff0000</color>
+
+</resources>

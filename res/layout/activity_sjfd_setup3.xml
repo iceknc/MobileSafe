@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+
+    <TextView
+        style="@style/SetupTitleBarStyle"
+        android:text="3.设置安全号码" />
+
+    <TextView
+        style="@style/SetupTextStyle"
+        android:text="SIM卡如果发生变化:\n就会发送报警短信给安全号码" />
+
+    <EditText
+        android:id="@+id/setup3_et_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="请输入安全号码"
+        android:phoneNumber="true"
+        android:singleLine="true" />
+
+    <Button
+        style="@style/NormalBtnPrimaryStyle"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:onClick="clickSelectContact"
+        android:text="请选择安全号码" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/step_1" />
+
+        <Button style="@style/SetupBtnNextStyle" />
+
+        <Button style="@style/SetupBtnPreStyle" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal" >
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/point_normal" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/point_normal" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/point_selected" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/point_normal" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/point_normal" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

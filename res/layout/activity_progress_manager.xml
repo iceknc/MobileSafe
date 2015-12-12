@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:itheima="http://schemas.android.com/apk/res/org.itheima.mobilesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            style="@style/TitleBarStyle"
+            android:text="进程管理" />
+
+        <ImageView
+            android:clickable="true"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/btn_progress_selector" 
+            android:scaleType="center"/>
+    </RelativeLayout>
+
+    <org.itheima.mobilesafe.view.ProgressStateView
+        android:id="@+id/pm_psv_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        itheima:psvTitle="进程数:" />
+
+    <org.itheima.mobilesafe.view.ProgressStateView
+        android:id="@+id/pm_psv_memory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        itheima:psvTitle="内存:" />
+
+</LinearLayout>

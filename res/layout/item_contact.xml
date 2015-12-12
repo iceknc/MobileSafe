@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp" >
+
+    <ImageView
+        android:id="@+id/item_contact_iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_contact" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/item_contact_iv_icon"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/item_contact_tv_name"
+            style="@style/NormalTextStyle"
+            android:text="名称" />
+
+        <TextView
+            android:id="@+id/item_contact_tv_number"
+            style="@style/NormalTextStyle"
+            android:text="13800138000"
+            android:textColor="#88000000"
+            android:textSize="16sp" />
+    </LinearLayout>
+</RelativeLayout>

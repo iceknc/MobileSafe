@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:itheima="http://schemas.android.com/apk/res/org.itheima.mobilesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        style="@style/TitleBarStyle"
+        android:text="常用工具"/>
+    
+    <org.itheima.mobilesafe.view.SettingItemTextView
+        android:id="@+id/ct_siv_numberaddress"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        itheima:sivText="号码归属地查询"
+        itheima:sivBackground="start"
+        itheima:sivToggleEnable="false"/>
+    
+    <org.itheima.mobilesafe.view.SettingItemTextView
+        android:id="@+id/ct_siv_commonnumber"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        itheima:sivText="常用号码查询"
+        itheima:sivBackground="end"
+        itheima:sivToggleEnable="false"/>
+
+</LinearLayout>

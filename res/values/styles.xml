@@ -1,0 +1,97 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+
+    <style name="DialogBaseTheme" parent="@android:style/Theme.Dialog"></style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- title样式 -->
+    <style name="TitleBarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">#399AD6</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- 引到页面的titlebarstyle -->
+    <style name="SetupTitleBarStyle" parent="@style/TitleBarStyle">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">4dp</item>
+    </style>
+
+    <!-- 普通文本样式 -->
+    <style name="NormalTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#AA000000</item>
+    </style>
+
+    <!-- 引导页面中文本样式 -->
+    <style name="SetupTextStyle" parent="@style/NormalTextStyle">
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!-- 引导页面中文本条目样式 -->
+    <style name="SetupItemTextStyle" parent="@style/NormalTextStyle">
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:drawableLeft">@drawable/dialog_title_default_icon</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
+    <style name="NormalBtnPrimaryStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_primary_selector</item>
+        <item name="android:textColor">@color/btn_textcolor_selector</item>
+    </style>
+
+    <style name="NormalBtnInfoStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_info_selector</item>
+    </style>
+
+    <style name="SetupBtnNextStyle" parent="@style/NormalBtnPrimaryStyle">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:drawableRight">@drawable/next</item>
+        <item name="android:text">下一步</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:onClick">clickNext</item>
+    </style>
+
+    <style name="SetupBtnPreStyle" parent="@style/NormalBtnPrimaryStyle">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:drawableLeft">@drawable/pre</item>
+        <item name="android:text">上一步</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:onClick">clickPre</item>
+    </style>
+
+    <style name="AddressDialogStyle" parent="@style/DialogBaseTheme">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowAnimationStyle">@style/AddressDialogAnimation</item>
+    </style>
+
+    <style name="AddressDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/input_method_enter</item>
+        <item name="android:windowExitAnimation">@anim/input_method_exit</item>
+    </style>
+</resources>

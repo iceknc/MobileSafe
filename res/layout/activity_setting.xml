@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:itheima="http://schemas.android.com/apk/res/org.itheima.mobilesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView 
+        style="@style/TitleBarStyle"
+        android:text="@string/setting_title"/>
+    
+    <org.itheima.mobilesafe.view.SettingItemTextView
+        android:id="@+id/setting_siv_autoupdate"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        itheima:sivText="自动更新设置"
+        itheima:sivBackground="start"
+        itheima:sivToggleEnable="true"/>
+    
+    <org.itheima.mobilesafe.view.SettingItemTextView
+        android:id="@+id/setting_siv_callsmssafe"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        itheima:sivText="骚扰拦截设置"
+        itheima:sivBackground="end"
+        itheima:sivToggleEnable="true"/>
+    
+    <org.itheima.mobilesafe.view.SettingItemTextView
+        android:id="@+id/setting_siv_numberaddress"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        itheima:sivText="归属地显示设置"
+        android:layout_marginTop="10dp"
+        itheima:sivBackground="start"
+        itheima:sivToggleEnable="true"/>
+    
+    <org.itheima.mobilesafe.view.SettingItemTextView
+        android:id="@+id/setting_siv_numberaddressstyle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        itheima:sivText="归属地显示设置"
+        itheima:sivBackground="end"
+        itheima:sivToggleEnable="false"/>
+
+</LinearLayout>
