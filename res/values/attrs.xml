@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <!-- 新建自定义属性集合 -->
+
+    <!-- 新建自定义属性集合 -->
     <declare-styleable name="SettingItemView">
 
         <!-- 自定义属性 :文本 -->
@@ -15,10 +16,28 @@
         <!-- 自定义属性 :开关 -->
         <attr name="sivToggleEnable" format="boolean" />
     </declare-styleable>
-    
+
+    <!-- 进程管理和软件管家里的使用量进度 -->
     <declare-styleable name="ProgressStateView">
 
         <!-- title -->
         <attr name="psvTitle" format="reference|string" />
     </declare-styleable>
+
+    <!-- 自定义翻页 -->
+    <declare-styleable name="SegementView">
+
+        <!-- 按钮左侧文本 -->
+        <attr name="svLeft" format="reference|string" />
+
+        <!-- 按钮右侧文本 -->
+        <attr name="svRight" format="reference|string" />
+
+        <!-- 按钮选中状态 -->
+        <attr name="svSelected">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+    </declare-styleable>
+
 </resources>

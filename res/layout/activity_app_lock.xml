@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:itheima="http://schemas.android.com/apk/res/org.itheima.mobilesafe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#399AD6" >
+
+        <org.itheima.mobilesafe.view.SegementView
+            android:id="@+id/al_sv_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            itheima:svLeft="未加锁"
+            itheima:svRight="已加锁"
+            itheima:svSelected="left" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/al_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CECECE"
+        android:padding="4dp"
+        android:text="左侧选中" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/al_listview_unlock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ListView>
+
+        <ListView
+            android:id="@+id/al_listview_lock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" 
+            android:visibility="gone">
+        </ListView>
+
+        <include layout="@layout/include_loading" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -7,6 +7,7 @@ import java.util.List;
 import org.itheima.mobilesafe.bean.AppBean;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -57,6 +58,56 @@ public class AppProvider {
 
 			list.add(bean);
 		}
+		return list;
+	}
+
+	/**
+	 * 获得设备中有启动项的程序
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static List<AppBean> getLaunchedApps(Context context) {
+		List<AppBean> list = new ArrayList<AppBean>();
+
+		PackageManager pm = context.getPackageManager();
+		// 获得所有应用程序的清单文件
+		List<PackageInfo> packages = pm.getInstalledPackages(0);
+		for (PackageInfo info : packages) {
+			Intent intent = pm.getLaunchIntentForPackage(info.packageName);
+			if (intent == null) {
+				// 过滤出没有启动项的程序
+				continue;
+			}
+			ApplicationInfo applicationInfo = info.applicationInfo;
+
+			Drawable icon = applicationInfo.loadIcon(pm);
+			String name = applicationInfo.loadLabel(pm).toString();
+
+			File file = new File(applicationInfo.sourceDir);
+
+			int flags = applicationInfo.flags;
+			boolean isSystem = false;
+			if ((flags & ApplicationInfo.FLAG_SYSTEM) == ApplicationInfo.FLAG_SYSTEM) {
+				isSystem = true;
+			}
+
+			boolean isInstallSD = false;
+			if ((flags & ApplicationInfo.FLAG_EXTERNAL_STORAGE) == ApplicationInfo.FLAG_EXTERNAL_STORAGE) {
+				isInstallSD = true;
+			}
+
+			AppBean bean = new AppBean();
+			bean.name = name;
+			bean.icon = icon;
+			bean.size = file.length();
+			bean.isSystem = isSystem;
+			bean.isInstallSD = isInstallSD;
+			bean.packageName = info.packageName;
+
+			list.add(bean);
+		}
+
 		return list;
 	}
 }

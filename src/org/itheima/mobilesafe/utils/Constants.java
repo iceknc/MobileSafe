@@ -25,9 +25,13 @@ public interface Constants {
 	 * 手机防盗勾选状态
 	 */
 	String SJFD_PROTECTING = "sjfd_protecting";
-	
+
 	/**
 	 * 号码归属地的背景样式
 	 */
 	String STYLE_ADDRESS = "style_address";
+	/**
+	 * 进程管理页面是否显示系统进程的标记
+	 */
+	String SHOW_SYSTEM = "show_system";
 }

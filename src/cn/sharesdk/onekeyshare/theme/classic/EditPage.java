@@ -18,6 +18,7 @@ import static cn.sharesdk.framework.utils.ShareSDKR.getBitmapRes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -153,6 +154,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		}.start();
 	}
 
+	@SuppressWarnings("deprecation")
 	private RelativeLayout getPageView() {
 		rlPage = new RelativeLayout(getContext());
 		rlPage.setBackgroundDrawable(background);
@@ -237,6 +239,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		return llBody;
 	}
 
+	@SuppressWarnings("deprecation")
 	private LinearLayout getMainBody() {
 		LinearLayout llMainBody = new LinearLayout(getContext());
 		llMainBody.setOrientation(LinearLayout.VERTICAL);
@@ -530,6 +533,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		}
 	}
 
+	@SuppressLint("DefaultLocale")
 	private String getName(String platform) {
 		if (platform == null) {
 			return "";
@@ -644,6 +648,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 		});
 	}
 
+	@SuppressLint("DefaultLocale")
 	private Bitmap getPlatLogo(Platform plat) {
 		if (plat == null) {
 			return null;

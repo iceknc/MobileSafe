@@ -1,7 +1,5 @@
 package org.itheima.mobilesafe.utils;
 
-import org.itheima.mobilesafe.view.AddressDialog;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;

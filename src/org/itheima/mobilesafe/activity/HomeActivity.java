@@ -211,7 +211,7 @@ public class HomeActivity extends Activity implements OnItemClickListener {
 	 * 软件管家item点击响应
 	 */
 	private void clickJcgl(){
-		Intent intent = new Intent(this, ProgressManagerActivity.class);
+		Intent intent = new Intent(this, ProcessManagerActivity.class);
 		startActivity(intent);
 	}
 	
