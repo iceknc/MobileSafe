@@ -52,7 +52,7 @@ public class AppLockService1 extends Service {
 		// 监听用户开启了哪个程序
 		startWatch();
 
-		// 注册广播接收者，监听开关屏幕
+		// 注册广播接收者，监听开关屏幕，监听自己定义的数据库变更广播
 		mReceiver = new AppLockReceiver();
 		IntentFilter filter = new IntentFilter();
 		filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
@@ -74,6 +74,10 @@ public class AppLockService1 extends Service {
 		Log.d(TAG, "程序锁服务1关闭");
 
 		isRunning = false;
+
+		unregisterReceiver(mReceiver);
+
+		mCr.unregisterContentObserver(mObserver);
 	}
 
 	private void startWatch() {
@@ -84,7 +88,7 @@ public class AppLockService1 extends Service {
 			public void run() {
 				while (isRunning) {
 					try {
-						Thread.sleep(300);
+						Thread.sleep(500);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -97,7 +101,7 @@ public class AppLockService1 extends Service {
 
 					String className = componentName.getClassName();
 					String packageName = componentName.getPackageName();
-					Log.d(TAG, className + "---" + packageName);
+					Log.d(TAG, "当前运行:" + className + " --- " + packageName);
 
 					if (mFrees.contains(packageName)) {
 						continue;
@@ -116,7 +120,6 @@ public class AppLockService1 extends Service {
 				}
 			}
 		}).start();
-
 	}
 
 	private class AppLockReceiver extends BroadcastReceiver {

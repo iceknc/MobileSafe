@@ -34,4 +34,8 @@ public interface Constants {
 	 * 进程管理页面是否显示系统进程的标记
 	 */
 	String SHOW_SYSTEM = "show_system";
+	/**
+	 * 快捷图标
+	 */
+	String SHORTCUT = "shortcut";
 }

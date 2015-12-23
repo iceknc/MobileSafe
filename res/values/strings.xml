@@ -8,4 +8,6 @@
     <string name="setting_title">设置中心</string>
 	<string name="sample_device_admin_description">黑马手机卫士，保护你的数据安全</string>
 	<string name="sample_device_admin">黑马手机卫士</string>
+	<string name="accessibility_service_label">黑马手机卫士程序锁</string>
+    <string name="accessibility_service_description">黑马手机卫士程序锁保护你应用不被流氓软件利用</string>
 </resources>

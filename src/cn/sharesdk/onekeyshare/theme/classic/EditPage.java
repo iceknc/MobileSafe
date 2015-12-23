@@ -713,6 +713,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 					| WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 			rlPage.setBackgroundColor(DIM_COLOR);
 			rlPage.postDelayed(new Runnable() {
+				@SuppressWarnings("deprecation")
 				public void run() {
 					getBackground();
 					rlPage.setBackgroundDrawable(background);
@@ -725,6 +726,7 @@ public class EditPage extends EditPageFakeActivity implements OnClickListener, T
 					| WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 			rlPage.setBackgroundColor(DIM_COLOR);
 			rlPage.postDelayed(new Runnable() {
+				@SuppressWarnings("deprecation")
 				public void run() {
 					getBackground();
 					rlPage.setBackgroundDrawable(background);

@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.itheima.mobilesafe.R;
 import org.itheima.mobilesafe.service.AppLockService1;
+import org.itheima.mobilesafe.service.AppLockService2;
 import org.itheima.mobilesafe.utils.ServiceStateUtils;
 import org.itheima.mobilesafe.utils.SmsUtils;
 import org.itheima.mobilesafe.utils.SmsUtils.OnSmsBackupListener;
@@ -39,6 +40,16 @@ public class CommonToolActivity extends Activity {
 		initEvent();
 	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
+		// 回显开关状态
+		mSivLockService1.setToggle(ServiceStateUtils.isRunning(this,
+				AppLockService1.class));
+		mSivLockService2.setToggle(ServiceStateUtils.isRunning(this,
+				AppLockService2.class));
+	}
+
 	private void initView() {
 		mSivNumberAddress = (SettingItemTextView) findViewById(R.id.ct_siv_numberaddress);
 		mSivCommonNumber = (SettingItemTextView) findViewById(R.id.ct_siv_commonnumber);
@@ -47,10 +58,6 @@ public class CommonToolActivity extends Activity {
 		mSivAppLock = (SettingItemTextView) findViewById(R.id.ct_siv_applock);
 		mSivLockService1 = (SettingItemTextView) findViewById(R.id.ct_siv_lockservice1);
 		mSivLockService2 = (SettingItemTextView) findViewById(R.id.ct_siv_lockservice2);
-
-		// 回显开关状态
-		mSivLockService1.setToggle(ServiceStateUtils.isRunning(this,
-				AppLockService1.class) ? true : false);
 	}
 
 	private void initEvent() {
@@ -125,8 +132,12 @@ public class CommonToolActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setAction("android.settings.ACCESSIBILITY_SETTINGS");
+				intent.addCategory("android.intent.category.DEFAULT");
+				intent.addCategory("android.intent.category.VOICE_LAUNCH");
 
+				startActivity(intent);
 			}
 		});
 	}

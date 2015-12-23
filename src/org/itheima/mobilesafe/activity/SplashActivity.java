@@ -18,6 +18,7 @@ import org.itheima.mobilesafe.utils.PreferenceUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -25,6 +26,8 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -34,6 +37,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+@SuppressLint("HandlerLeak")
 public class SplashActivity extends Activity {
 	private TextView mTvVersion;
 	private static final String TAG = "SplashActivity";
@@ -72,6 +76,7 @@ public class SplashActivity extends Activity {
 		initView();
 		// // 初始化数据
 		initData();
+
 	}
 
 	/**
@@ -100,6 +105,27 @@ public class SplashActivity extends Activity {
 
 		// 加载常用号码数据库
 		copyCommonNumberDB();
+
+		// 加载病毒库
+		copyVirusDB();
+
+		if (!PreferenceUtils.getBoolean(this, Constants.SHORTCUT)) {
+			Intent intent = new Intent();
+			intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+			// 设置快捷图标的名称
+			intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "黑马手机卫士");
+			// 设置点击响应
+			Intent clickIntent = new Intent(this, SplashActivity.class);
+			intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, clickIntent);
+			// 图标
+			Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+					R.drawable.ic_launcher);
+			intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, bitmap);
+			
+			sendBroadcast(intent);
+			
+			PreferenceUtils.putBoolean(this, Constants.SHORTCUT, true);
+		}
 	}
 
 	/**
@@ -361,6 +387,39 @@ public class SplashActivity extends Activity {
 		}
 	}
 
+	private void copyVirusDB() {
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				File file = new File(getFilesDir(), "antivirus.db");
+				if (file.exists()) {
+					return;
+				}
+				AssetManager assets = getAssets();
+
+				InputStream is = null;
+				FileOutputStream fos = null;
+				try {
+					is = assets.open("antivirus.db");
+					fos = new FileOutputStream(file);
+
+					byte[] bys = new byte[1024];
+					int len = -1;
+					while ((len = is.read(bys)) != -1) {
+						fos.write(bys, 0, len);
+						fos.flush();
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					close(fos);
+					close(is);
+				}
+			}
+		}).start();
+	}
+
 	private void copyNumberAddressDB() {
 		new Thread(new Runnable() {
 
@@ -373,13 +432,18 @@ public class SplashActivity extends Activity {
 				}
 
 				AssetManager assets = getAssets();
+				FileOutputStream fos = null;
+				InputStream inputStream = null;
 				try {
-					FileOutputStream fos = new FileOutputStream(file);
-					InputStream inputStream = assets.open("address.zip");
+					fos = new FileOutputStream(file);
+					inputStream = assets.open("address.zip");
 
 					GZipUtils.unZip(inputStream, fos);
 				} catch (IOException e) {
 					e.printStackTrace();
+				} finally {
+					close(inputStream);
+					close(fos);
 				}
 			}
 		}).start();

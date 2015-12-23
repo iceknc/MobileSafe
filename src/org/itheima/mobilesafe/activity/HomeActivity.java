@@ -56,6 +56,9 @@ public class HomeActivity extends Activity implements OnItemClickListener {
 		initData();
 		// 设置事件
 		initEvent();
+
+		// 添加一个病毒记录
+		//AntiVirusDao.add(this, "0404d4cf63ff7ca4c56bd7700c49536d");
 	}
 
 	public void clickSetting(View v) {
@@ -170,10 +173,19 @@ public class HomeActivity extends Activity implements OnItemClickListener {
 		case 3:
 			clickJcgl();
 			break;
+		case 4:
+			clickLltj();
+			break;
+		case 5:
+			clickSjsd();
+			break;
+		case 6:
+			clickHcql();
+			break;
 		case 7:
 			clickCygj();
 			break;
-			
+
 		}
 	}
 
@@ -198,27 +210,51 @@ public class HomeActivity extends Activity implements OnItemClickListener {
 		Intent intent = new Intent(this, CallSmsSafeActivity.class);
 		startActivity(intent);
 	}
-	
+
 	/**
 	 * 软件管家item点击响应
 	 */
-	private void clickRjgj(){
+	private void clickRjgj() {
 		Intent intent = new Intent(this, AppManagerActivity.class);
 		startActivity(intent);
 	}
-	
+
 	/**
 	 * 软件管家item点击响应
 	 */
-	private void clickJcgl(){
+	private void clickJcgl() {
 		Intent intent = new Intent(this, ProcessManagerActivity.class);
 		startActivity(intent);
 	}
-	
+
+	/**
+	 * 流量统计item点击响应
+	 */
+	private void clickLltj() {
+		Intent intent = new Intent(this, TrafficActivity.class);
+		startActivity(intent);
+	}
+
+	/**
+	 * 手机杀毒item点击响应
+	 */
+	private void clickSjsd() {
+		Intent intent = new Intent(this, AntiVirusActivity1.class);
+		startActivity(intent);
+	}
+
+	/**
+	 * 缓存清理item点击响应
+	 */
+	private void clickHcql() {
+		Intent intent = new Intent(this, CacheCleanActivity.class);
+		startActivity(intent);
+	}
+
 	/**
 	 * 常用工具item点击响应
 	 */
-	private void clickCygj(){
+	private void clickCygj() {
 		Intent intent = new Intent(this, CommonToolActivity.class);
 		startActivity(intent);
 	}

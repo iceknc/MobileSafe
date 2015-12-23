@@ -78,11 +78,9 @@ public class LockActivity extends Activity {
 			}
 		});
 	}
-	
+
 	@Override
 	public void onBackPressed() {
-		super.onBackPressed();
-		
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.MAIN");
 		intent.addCategory("android.intent.category.HOME");
